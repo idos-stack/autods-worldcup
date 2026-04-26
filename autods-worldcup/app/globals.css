@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-orange: #FF6B35;
+  --brand-navy:   #1A2F5A;
+}
+
+html, body {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+/* Smooth scrolling on mobile */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Bottom nav safe area */
+.pb-safe { padding-bottom: calc(4rem + env(safe-area-inset-bottom)); }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 2px; }
+
+/* Score input */
+.score-input {
+  @apply w-12 h-12 text-center text-xl font-bold rounded-lg border-2 border-gray-200
+         focus:border-brand-orange focus:outline-none bg-white;
+}
+.score-input:disabled {
+  @apply bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed;
+}
+
+/* Prediction card states */
+.card-open    { @apply border-l-4 border-l-brand-orange; }
+.card-locked  { @apply border-l-4 border-l-gray-300 opacity-75; }
+.card-correct { @apply border-l-4 border-l-green-500; }
+.card-wrong   { @apply border-l-4 border-l-red-400; }
+
+/* Sticky leaderboard header */
+.lb-header { position: sticky; top: 0; z-index: 10; }
